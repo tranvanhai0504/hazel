@@ -193,9 +193,9 @@ info.setLife(1000)
 game.onUpdate(function () {
     mySprite.setImage(assets.image`Main character`)
     if (mySprite.vy < 0) {
-        mySprite.setImage(assets.image`Main character1`)
+        mySprite.setImage(assets.image`Main character2`)
     } else if (mySprite.vy > 0) {
-        mySprite.setImage(assets.image`Main character`)
+        mySprite.setImage(assets.image`Main character3`)
     }
     if (vDarts == -150) {
         mySprite.image.flipX()

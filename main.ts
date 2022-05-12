@@ -26,12 +26,35 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
     mySprite.destroy(effects.fire, 500)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    mySprite,
+    assets.animation`myAnim3`,
+    200,
+    true
+    )
+    vDarts = -150
+})
+controller.right.onEvent(ControllerButtonEvent.Released, function () {
+    mySprite.setImage(assets.image`Main character`)
+    animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+    vDarts = 150
+})
+controller.left.onEvent(ControllerButtonEvent.Released, function () {
     mySprite.setImage(assets.image`Main character1`)
+    animation.stopAnimation(animation.AnimationTypes.All, mySprite)
     vDarts = -150
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.setImage(assets.image`Main character`)
+    animation.runImageAnimation(
+    mySprite,
+    assets.animation`myAnim2`,
+    200,
+    true
+    )
     vDarts = 150
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.setImage(assets.image`Main character4`)
 })
 info.onLifeZero(function () {
 	
@@ -191,14 +214,22 @@ myDart = sprites.create(img`
     `, SpriteKind.Projectile)
 info.setLife(1000)
 game.onUpdate(function () {
-    mySprite.setImage(assets.image`Main character`)
     if (mySprite.vy < 0) {
         mySprite.setImage(assets.image`Main character2`)
     } else if (mySprite.vy > 0) {
         mySprite.setImage(assets.image`Main character3`)
+    } else {
+        mySprite.setImage(assets.image`Main character`)
     }
     if (vDarts == -150) {
         mySprite.image.flipX()
+        if (mySprite.vy < 0) {
+            mySprite.setImage(assets.image`Main character5`)
+        } else if (mySprite.vy > 0) {
+            mySprite.setImage(assets.image`Main character6`)
+        } else {
+            mySprite.setImage(assets.image`Main character1`)
+        }
     }
 })
 game.onUpdate(function () {

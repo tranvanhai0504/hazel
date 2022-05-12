@@ -218,16 +218,15 @@ game.onUpdate(function () {
         mySprite.setImage(assets.image`Main character2`)
     } else if (mySprite.vy > 0) {
         mySprite.setImage(assets.image`Main character3`)
-    } else {
+    } else if (mySprite.vy == 1) {
         mySprite.setImage(assets.image`Main character`)
     }
     if (vDarts == -150) {
-        mySprite.image.flipX()
         if (mySprite.vy < 0) {
             mySprite.setImage(assets.image`Main character5`)
         } else if (mySprite.vy > 0) {
             mySprite.setImage(assets.image`Main character6`)
-        } else {
+        } else if (mySprite.vy == 1) {
             mySprite.setImage(assets.image`Main character1`)
         }
     }

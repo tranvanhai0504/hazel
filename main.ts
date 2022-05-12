@@ -1,8 +1,80 @@
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
+    mySprite.vy = -160
+    info.changeLifeBy(-1)
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.vy == 0) {
         mySprite.vy = -220
     }
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile22`, function (sprite, location) {
+    info.changeLifeBy(-1)
+    mySprite.vx = -150
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    myDart = sprites.createProjectileFromSprite(img`
+        . . . . . 5 5 
+        . . . . . 5 5 
+        . . . . 5 5 1 
+        . . 1 5 5 5 . 
+        . . 5 5 5 1 . 
+        5 5 5 5 . . . 
+        5 5 . . . . . 
+        `, mySprite, vDarts, 0)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
+    mySprite.destroy(effects.fire, 500)
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.setImage(img`
+        . . . . f f f f f . . . . . . . 
+        . . . f e e e e e f . . . . . . 
+        . . f d d d d e e e f f . . . . 
+        . c d d d d d d e e d d f . . . 
+        . c d f d d f d e e b d c . . . 
+        c d d f d d f d e e b d c . f f 
+        c d e e d d d d e e f c . f e f 
+        c d d d d c d e e e f . . f e f 
+        . f c c c d e e e f f . . f e f 
+        . . f f f f f e e e e f . f e f 
+        . . . . f e e e e e e e f f f . 
+        . . f f e f e e f e e e e f . . 
+        . f e f f e e f f f e e e f . . 
+        f d d b d d c f f f f f f b f . 
+        f d d c d d d f . . f c d d f . 
+        . f f f f f f f . . . f f f . . 
+        `)
+    vDarts = -150
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.setImage(img`
+        . . . . . . . f f f f f . . . . 
+        . . . . . . f e e e e e f . . . 
+        . . . . f f e e e d d d d f . . 
+        . . . f d d e e d d d d d d c . 
+        . . . c d b e e d f d d f d c . 
+        f f . c d b e e d f d d f d d c 
+        f e f . c f e e d d d d e e d c 
+        f e f . . f e e e d c d d d d c 
+        f e f . . f f e e e d c c c f . 
+        f e f . f e e e e f f f f f . . 
+        . f f f e e e e e e e f . . . . 
+        . . f e e e e f e e f e f f . . 
+        . . f e e e f f f e e f f e f . 
+        . f b f f f f f f c d d b d d f 
+        . f d d c f . . f d d d c d d f 
+        . . f f f . . . f f f f f f f . 
+        `)
+    vDarts = 150
+})
+info.onLifeZero(function () {
+	
+})
+sprites.onDestroyed(SpriteKind.Player, function (sprite) {
+    game.over(false)
+})
+let vDarts = 0
+let myDart: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -128,33 +200,150 @@ scene.setBackgroundImage(img`
     `)
 tiles.setCurrentTilemap(tilemap`level1`)
 mySprite = sprites.create(img`
-    ........................
-    ........................
-    ........................
-    ........................
-    .........fffff..........
-    .......ffb1111ff........
-    ......fb1111111bf.......
-    ......f111111111f.......
-    .....ffff1111111df......
-    ....fb111c1dd111df......
-    ....ffb1b1fdcf11bf......
-    .....ffbfbfb11111f......
-    ......ffffcfdb1b1f......
-    .......fcccfcfbfbf......
-    ........ffffffffff......
-    .........ffffff.........
-    .........ffffff.........
-    .....f..fffffff.........
-    .....fffffffff..........
-    ......fffffff...........
-    ........................
-    ........................
-    ........................
-    ........................
+    ..........f.....
+    .....fffffefff..
+    ....feeeeeeeef..
+    ...feeeeeeeeeef.
+    ...feebbeeeeeeef
+    ...feebbbbbbbff.
+    ...fdebfdddfdf..
+    ...fbbbfdddfdf..
+    ....fbbddddddf..
+    .....feeeeeef...
+    ....fefffffff...
+    ....feeefeeef...
+    ...fdeeeffeeff..
+    ...fdfeeeeeefdf.
+    ...fffcccbbbfff.
+    .....fccbbbbf...
+    .....fccf.fbf...
+    .....fff..ff....
+    ................
+    ................
     `, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 0)
 scene.cameraFollowSprite(mySprite)
 mySprite.setPosition(10, 160)
 mySprite.ay = 650
 story.spriteSayText(mySprite, "terrible smell!:(", 15, 1, story.TextSpeed.Fast)
+myDart = sprites.create(img`
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    ....................................
+    `, SpriteKind.Projectile)
+info.setLife(1000)
+game.onUpdate(function () {
+    mySprite.setImage(img`
+        . . . . . . . f f f f f . . . . 
+        . . . . . . f e e e e e f . . . 
+        . . . . f f e e e d d d d f . . 
+        . . . f d d e e d d d d d d c . 
+        . . . c d b e e d f d d f d c . 
+        f f . c d b e e d f d d f d d c 
+        f e f . c f e e d d d d e e d c 
+        f e f . . f e e e d c d d d d c 
+        f e f . . f f e e e d c c c f . 
+        f e f . f e e e e f f f f f . . 
+        . f f f e e e e e e e f . . . . 
+        . . f e e e e f e e f e f f . . 
+        . . f e e e f f f e e f f e f . 
+        . f b f f f f f f c d d b d d f 
+        . f d d c f . . f d d d c d d f 
+        . . f f f . . . f f f f f f f . 
+        `)
+    if (mySprite.vy < 0) {
+        mySprite.setImage(img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . . f e e e d d d d f . . 
+            . . . . . f e e d f d d f d c . 
+            . . . . f f e e d f d d f d c . 
+            . . . f d d e e d d d d e e d c 
+            . . . c d b e e d d c d d d d c 
+            f f . c d b e e e d d c c c c c 
+            f e f . c f f e e e d d d d f . 
+            f e f . f e e e e f f f f f f . 
+            f e f f e e e e e e e f f f f . 
+            . f f e e e e f e f d d f d d f 
+            . . f e e e e f e f b d f b d f 
+            . . f e f f f f f f f f f f f f 
+            . . f d d c f . . . . . . . . . 
+            . . f f f f . . . . . . . . . . 
+            `)
+    } else if (mySprite.vy > 0) {
+        mySprite.setImage(img`
+            . . . . . . . f f f f f . . . . 
+            . . . . f f f e e e e e f . . . 
+            . . . f d d e e e e d d d f . . 
+            . . . c d b e e e d d d d d c . 
+            . . . c d b e e d d d d d d c . 
+            . f f . c f e e d f d d f d d c 
+            f e f . . f e e d f d d f d d c 
+            f e f . . f e e d d d d e e d c 
+            f e f . . f f e e d c d d d f . 
+            f e f . f e e e e e d f f f . . 
+            . f f f e e e e e e e f . . . . 
+            . . f f b e e e e e f f . . . . 
+            . . f f d d c e e f f e f . . . 
+            . . . . f f f c d d b d d f . . 
+            . . . . . f f d d d c d d f . . 
+            . . . . . . f f f f f f f . . . 
+            `)
+    }
+    if (vDarts == -150) {
+        mySprite.image.flipX()
+    }
+})
+game.onUpdate(function () {
+    animation.runImageAnimation(
+    myDart,
+    [img`
+        . . . . 5 5 1 
+        . . . . . 5 1 
+        . . . . 5 5 . 
+        . . . 5 5 5 . 
+        . . 5 5 1 . . 
+        . 1 5 5 1 . . 
+        5 5 5 . . . . 
+        `,img`
+        . . . 5 . . . 
+        . . . 5 5 . . 
+        . . . 1 5 . . 
+        . . . . 5 . . 
+        . . 1 5 5 . . 
+        . . 5 5 1 . . 
+        . . 5 . . . . 
+        `,img`
+        5 5 5 1 . . . 
+        . 1 5 5 5 . . 
+        . . . 1 5 1 . 
+        . . . . 5 5 1 
+        . . . . . 5 5 
+        . . . . . . 5 
+        . . . . . . 5 
+        `,img`
+        . 1 . . . . . 
+        1 5 5 5 5 5 . 
+        5 5 . . 1 5 5 
+        5 . . . . . 5 
+        . . . . . . . 
+        . . . . . . . 
+        . . . . . . . 
+        `],
+    60,
+    true
+    )
+})

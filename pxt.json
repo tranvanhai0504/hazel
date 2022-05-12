@@ -1,5 +1,5 @@
 {
-    "name": "Hazel",
+    "name": "Hazel - Copy - Copy",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -29,5 +29,5 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }

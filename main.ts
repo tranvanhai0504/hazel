@@ -1,4 +1,5 @@
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile0`, function (sprite, location) {
+    mySprite.vy = -160
     info.changeLifeBy(-1)
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -8,6 +9,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile22`, function (sprite, location) {
     info.changeLifeBy(-1)
+    mySprite.vx = -150
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     myDart = sprites.createProjectileFromSprite(img`
@@ -22,8 +24,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     mySprite.destroy(effects.fire, 500)
-    pause(200)
-    game.over(false)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.setImage(img`
@@ -69,6 +69,9 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 info.onLifeZero(function () {
 	
+})
+sprites.onDestroyed(SpriteKind.Player, function (sprite) {
+    game.over(false)
 })
 let vDarts = 0
 let myDart: Sprite = null
@@ -237,7 +240,7 @@ myDart = sprites.create(img`
     ....................................
     ....................................
     `, SpriteKind.Projectile)
-info.setLife(10)
+info.setLife(1000)
 game.onUpdate(function () {
     mySprite.setImage(img`
         . . . . . . . f f f f f . . . . 

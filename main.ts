@@ -26,45 +26,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
     mySprite.destroy(effects.fire, 500)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.setImage(img`
-        . . . . f f f f f . . . . . . . 
-        . . . f e e e e e f . . . . . . 
-        . . f d d d d e e e f f . . . . 
-        . c d d d d d d e e d d f . . . 
-        . c d f d d f d e e b d c . . . 
-        c d d f d d f d e e b d c . f f 
-        c d e e d d d d e e f c . f e f 
-        c d d d d c d e e e f . . f e f 
-        . f c c c d e e e f f . . f e f 
-        . . f f f f f e e e e f . f e f 
-        . . . . f e e e e e e e f f f . 
-        . . f f e f e e f e e e e f . . 
-        . f e f f e e f f f e e e f . . 
-        f d d b d d c f f f f f f b f . 
-        f d d c d d d f . . f c d d f . 
-        . f f f f f f f . . . f f f . . 
-        `)
+    mySprite.setImage(assets.image`Main character1`)
     vDarts = -150
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.setImage(img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . f f e e e d d d d f . . 
-        . . . f d d e e d d d d d d c . 
-        . . . c d b e e d f d d f d c . 
-        f f . c d b e e d f d d f d d c 
-        f e f . c f e e d d d d e e d c 
-        f e f . . f e e e d c d d d d c 
-        f e f . . f f e e e d c c c f . 
-        f e f . f e e e e f f f f f . . 
-        . f f f e e e e e e e f . . . . 
-        . . f e e e e f e e f e f f . . 
-        . . f e e e f f f e e f f e f . 
-        . f b f f f f f f c d d b d d f 
-        . f d d c f . . f d d d c d d f 
-        . . f f f . . . f f f f f f f . 
-        `)
+    mySprite.setImage(assets.image`Main character`)
     vDarts = 150
 })
 info.onLifeZero(function () {
@@ -199,28 +165,7 @@ scene.setBackgroundImage(img`
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
     `)
 tiles.setCurrentTilemap(tilemap`level1`)
-mySprite = sprites.create(img`
-    ..........f.....
-    .....fffffefff..
-    ....feeeeeeeef..
-    ...feeeeeeeeeef.
-    ...feebbeeeeeeef
-    ...feebbbbbbbff.
-    ...fdebfdddfdf..
-    ...fbbbfdddfdf..
-    ....fbbddddddf..
-    .....feeeeeef...
-    ....fefffffff...
-    ....feeefeeef...
-    ...fdeeeffeeff..
-    ...fdfeeeeeefdf.
-    ...fffcccbbbfff.
-    .....fccbbbbf...
-    .....fccf.fbf...
-    .....fff..ff....
-    ................
-    ................
-    `, SpriteKind.Player)
+mySprite = sprites.create(assets.image`Main character`, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 0)
 scene.cameraFollowSprite(mySprite)
 mySprite.setPosition(10, 160)
@@ -246,62 +191,11 @@ myDart = sprites.create(img`
     `, SpriteKind.Projectile)
 info.setLife(1000)
 game.onUpdate(function () {
-    mySprite.setImage(img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . f f e e e d d d d f . . 
-        . . . f d d e e d d d d d d c . 
-        . . . c d b e e d f d d f d c . 
-        f f . c d b e e d f d d f d d c 
-        f e f . c f e e d d d d e e d c 
-        f e f . . f e e e d c d d d d c 
-        f e f . . f f e e e d c c c f . 
-        f e f . f e e e e f f f f f . . 
-        . f f f e e e e e e e f . . . . 
-        . . f e e e e f e e f e f f . . 
-        . . f e e e f f f e e f f e f . 
-        . f b f f f f f f c d d b d d f 
-        . f d d c f . . f d d d c d d f 
-        . . f f f . . . f f f f f f f . 
-        `)
+    mySprite.setImage(assets.image`Main character`)
     if (mySprite.vy < 0) {
-        mySprite.setImage(img`
-            . . . . . . . f f f f f . . . . 
-            . . . . . . f e e e e e f . . . 
-            . . . . . f e e e d d d d f . . 
-            . . . . . f e e d f d d f d c . 
-            . . . . f f e e d f d d f d c . 
-            . . . f d d e e d d d d e e d c 
-            . . . c d b e e d d c d d d d c 
-            f f . c d b e e e d d c c c c c 
-            f e f . c f f e e e d d d d f . 
-            f e f . f e e e e f f f f f f . 
-            f e f f e e e e e e e f f f f . 
-            . f f e e e e f e f d d f d d f 
-            . . f e e e e f e f b d f b d f 
-            . . f e f f f f f f f f f f f f 
-            . . f d d c f . . . . . . . . . 
-            . . f f f f . . . . . . . . . . 
-            `)
+        mySprite.setImage(assets.image`Main character1`)
     } else if (mySprite.vy > 0) {
-        mySprite.setImage(img`
-            . . . . . . . f f f f f . . . . 
-            . . . . f f f e e e e e f . . . 
-            . . . f d d e e e e d d d f . . 
-            . . . c d b e e e d d d d d c . 
-            . . . c d b e e d d d d d d c . 
-            . f f . c f e e d f d d f d d c 
-            f e f . . f e e d f d d f d d c 
-            f e f . . f e e d d d d e e d c 
-            f e f . . f f e e d c d d d f . 
-            f e f . f e e e e e d f f f . . 
-            . f f f e e e e e e e f . . . . 
-            . . f f b e e e e e f f . . . . 
-            . . f f d d c e e f f e f . . . 
-            . . . . f f f c d d b d d f . . 
-            . . . . . f f d d d c d d f . . 
-            . . . . . . f f f f f f f . . . 
-            `)
+        mySprite.setImage(assets.image`Main character`)
     }
     if (vDarts == -150) {
         mySprite.image.flipX()

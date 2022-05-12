@@ -1,4 +1,33 @@
 {
+    "image1": {
+        "data": "hwQQABQAAAAAAA8AAAAAAAAAAAAA8PEAAADwDwAAAADwH/H/DwDfDwAAAADwEbHd/f///w8PAADwEbH/7e/uu/sPAAAfEbHd7e/uu/8PAADwEbHd7e/vuwAAAADwEbHd7f/vvA8AAADwEbv/7e/uzPwPAADwEbu76+/uzPwPAADwERGx++7+//8AAAAAHxG9D//dDwAAAAAA8P//AAD/DwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Main character0"
+    },
+    "7[-=fLG=Q7OK+WS{0Q2I": {
+        "data": "hwQQABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABH/AAD/DwAAAAAA8BG9D//dDwAAAAAAHxGx+777/wAAAAAAHxG76++7zP8AAAAAH7H/7e/uzP8AAAAAH7Hb7f/vvAAAAAAAHxHb7e/v+wAAAAAAHxHb7e/u+/8AAAAAHxH/7e/uu/sAAAAAHxHb/f//DwAAAAAA8PH/DwDfDwAAAAAAAP8AAADwDwAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Main character"
+    },
+    "image2": {
+        "data": "hwQQABQAAAAAAAAAAAAAAAAAAAAAAP8AAADwDwAAAAAA8PH/DwDfDwAAAAAAHxHb/f//DwAAAAAAHxH/7e/uu/sAAAAAHxHb7e/u+/8AAAAAHxHb7e/v+wAAAAAAH7Hb7f/vvAAAAAAAH7H/7e/uzP8AAAAAHxG76++7zP8AAAAAHxGx+777/wAAAAAA8BG9D//dDwAAAAAAABH/AAD/DwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Main character1"
+    },
+    "anim1": {
+        "namespace": "myAnimations",
+        "id": "anim1",
+        "mimeType": "application/mkcd-animation",
+        "data": "YzgwMDEwMDAxMDAwMDEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA=",
+        "displayName": "myAnim"
+    },
+    "anim2": {
+        "namespace": "myAnimations",
+        "id": "anim2",
+        "mimeType": "application/mkcd-animation",
+        "data": "YzgwMDEwMDAxMDAwMDEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA=",
+        "displayName": "myAnim0"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

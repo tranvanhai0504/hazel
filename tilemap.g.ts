@@ -217,6 +217,25 @@ namespace myTiles {
 2.......................2
 2........................
 `, [myTiles.transparency16,sprites.dungeon.floorLight2,myTiles.tile6,myTiles.tile29,sprites.dungeon.floorDark2,sprites.dungeon.floorDark5,myTiles.tile43,myTiles.tile5,myTiles.tile3,myTiles.tile28,myTiles.tile31,myTiles.tile32,sprites.dungeon.floorDark3,myTiles.tile36,myTiles.tile37,myTiles.tile35,sprites.dungeon.floorLight5,myTiles.tile39,myTiles.tile41,myTiles.tile44,myTiles.tile42,myTiles.tile45,myTiles.tile46,myTiles.tile47], TileScale.Sixteen);
+            case "level3":
+            case "level3":return tiles.createTilemap(hex`1000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, [myTiles.transparency16], TileScale.Sixteen);
         }
         return null;
     })

@@ -12,21 +12,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile22`, function (sprite, 
     mySprite.vx = -150
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    myDart = sprites.createProjectileFromSprite(img`
-        . . . . . 5 5 
-        . . . . . 5 5 
-        . . . . 5 5 1 
-        . . 1 5 5 5 . 
-        . . 5 5 5 1 . 
-        5 5 5 5 . . . 
-        5 5 . . . . . 
-        `, mySprite, vDarts, 0)
+    myDart = sprites.createProjectileFromSprite(assets.image`myImage`, mySprite, vDarts, 0)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     mySprite.destroy(effects.fire, 500)
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile25`, function (sprite, location) {
-	
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -79,24 +68,7 @@ scene.cameraFollowSprite(mySprite)
 mySprite.setPosition(10, 160)
 mySprite.ay = 650
 story.spriteSayText(mySprite, "terrible smell!:(", 15, 1, story.TextSpeed.Fast)
-myDart = sprites.create(img`
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    ....................................
-    `, SpriteKind.Projectile)
+myDart = sprites.create(assets.image`myImage0`, SpriteKind.Projectile)
 info.setLife(1000)
 game.onUpdate(function () {
     if (mySprite.vy < 0) {
@@ -118,41 +90,26 @@ game.onUpdate(function () {
 })
 game.onUpdate(function () {
     animation.runImageAnimation(
-    myDart,
+    mySprite,
     [img`
-        . . . . 5 5 1 
-        . . . . . 5 1 
-        . . . . 5 5 . 
-        . . . 5 5 5 . 
-        . . 5 5 1 . . 
-        . 1 5 5 1 . . 
-        5 5 5 . . . . 
-        `,img`
-        . . . 5 . . . 
-        . . . 5 5 . . 
-        . . . 1 5 . . 
-        . . . . 5 . . 
-        . . 1 5 5 . . 
-        . . 5 5 1 . . 
-        . . 5 . . . . 
-        `,img`
-        5 5 5 1 . . . 
-        . 1 5 5 5 . . 
-        . . . 1 5 1 . 
-        . . . . 5 5 1 
-        . . . . . 5 5 
-        . . . . . . 5 
-        . . . . . . 5 
-        `,img`
-        . 1 . . . . . 
-        1 5 5 5 5 5 . 
-        5 5 . . 1 5 5 
-        5 . . . . . 5 
-        . . . . . . . 
-        . . . . . . . 
-        . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
         `],
-    60,
-    true
+    500,
+    false
     )
 })

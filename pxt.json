@@ -1,5 +1,5 @@
 {
-    "name": "Hazel - Copy - Copy - Copy",
+    "name": "Hazel - Copy - Copy - Copy - Copy",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -7,7 +7,9 @@
         "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24",
         "Color Fading": "github:jwunderl/pxt-color#v0.2.2",
         "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3",
-        "animation": "*"
+        "animation": "*",
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0"
     },
     "files": [
         "main.blocks",
@@ -17,7 +19,8 @@
         "images.g.jres",
         "images.g.ts",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        null
     ],
     "testFiles": [
         "test.ts"
@@ -34,7 +37,7 @@
         "#000000",
         "#ffffff",
         "#ff2121",
-        "#ff93c4",
+        "#003fad",
         "#ff8135",
         "#fff609",
         "#5b5b5b",
